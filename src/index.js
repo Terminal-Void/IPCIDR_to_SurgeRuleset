@@ -1,6 +1,19 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    
+    // 环境变量鉴权：如果配置了 AUTH_TOKEN，则校验
+    const expectedToken = env.AUTH_TOKEN;
+    if (expectedToken) {
+      const providedToken = url.searchParams.get('token') || request.headers.get('Authorization')?.replace('Bearer ', '');
+      if (providedToken !== expectedToken) {
+        return new Response('未授权访问: Token 无效', { 
+          status: 401,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
+      }
+    }
+
     const targetUrl = url.searchParams.get('url');
 
     if (!targetUrl) {

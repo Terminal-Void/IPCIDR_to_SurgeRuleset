@@ -1,3 +1,8 @@
 name = "ipcidr-to-surge-ruleset-converter"
 main = "src/index.js"
 compatibility_date = "2026-04-25"
+
+[vars]
+# 取消下方注释并修改密码，启用鉴权。或直接在环境变量中配置AUTH_TOKEN
+# 开启鉴权后，请求需加上参数 ?token=你的密码 或者在请求头中携带 Authorization: Bearer 你的密码
+# AUTH_TOKEN = "your_secret_token_here"
