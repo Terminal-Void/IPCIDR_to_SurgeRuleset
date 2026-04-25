@@ -34,7 +34,7 @@ export default {
         .split('\n')
         .map(line => line.trim())
         .filter(line => line.length > 0 && !line.startsWith('#'))
-        .map(line => `IP-CIDR,${line}`)
+        .map(line => line.includes(':') ? `IP-CIDR6,${line}` : `IP-CIDR,${line}`)
         .join('\n');
 
       return new Response(surgeRuleset, {
