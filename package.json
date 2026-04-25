@@ -1,0 +1,13 @@
+{
+  "name": "surge-ruleset-converter",
+  "version": "1.0.0",
+  "description": "Convert plain IP txt to Surge Ruleset",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
